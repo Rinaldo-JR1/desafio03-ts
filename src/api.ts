@@ -6,8 +6,14 @@ const conta = {
     id: '1'
 }
 
-export const api = new Promise((resolve) => {
-    setTimeout(() => {
-        resolve(conta)
-    }, 3000)
-})
+
+export const api = (email:string,senha:string) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            if (conta.email !== email || conta.password !== senha) { 
+                resolve(false)
+            }
+            resolve(conta)
+        }, 3000)
+    })
+}
